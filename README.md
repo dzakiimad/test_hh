@@ -2,7 +2,7 @@
 ## backend
 - _cd backend_
 - _npm i_
-- *setting config development /config.json dan /config.js dengan username, password, dialect*
+- **setting config development /config.json dan /config.js dengan username, password, dialect**
 - _npx sequelize-cli_ db:create //membuat db 
 - _npx sequelize-cli db:migrate_
 - _npx sequelize-cli db:seed:all_
