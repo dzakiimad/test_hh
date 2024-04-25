@@ -13,3 +13,9 @@
 - _cd my-app_
 - _npm i_
 - _npm run dev_ //running on port 8080
+
+## jalankan aplikasi 
+buka pada browser http://localhost:8080/
+login menggunakan data seeding 
+1. email: user1@example.com password: password1
+2. email: user2@example.com password: password2
