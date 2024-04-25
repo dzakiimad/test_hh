@@ -2,10 +2,7 @@ const bcrypt = require('bcrypt')
 
 const {Sequelize} = require('sequelize');
 const { generateToken } = require('../helpers_function/jwt');
-const sequelize = new Sequelize('test_hh_dev', 'postgres', 'postgres', {
-    host: 'localhost',
-    dialect:'postgres' 
-  })
+const { sequelize } = require('../config/config');
 class User_controller {
     static async updateUser(req, res) {
         try {
@@ -41,9 +38,11 @@ class User_controller {
             
             let user
             if (email) {
-               user = await sequelize.query(`SELECT * FROM "Users" WHERE "email" = :email`, { replacements: { email } })
-               user = user[0][0]
+                user = await sequelize.query(`SELECT * FROM "Users" WHERE "email" = :email`, { replacements: { email } })
+                console.log(user);
+                user = user[0][0]
             }
+            console.log(req.body);
 
             if (!user) {
                 throw {

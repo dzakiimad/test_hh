@@ -1,9 +1,7 @@
 const {Sequelize} = require('sequelize');
 const { timeToSeconds, secondsToTime } = require('../helpers_function/totalActivity');
-const sequelize = new Sequelize('test_hh_dev', 'postgres', 'postgres', {
-    host: 'localhost',
-    dialect:'postgres' 
-  })
+const { sequelize } = require('../config/config');
+sequelize
 
 class Activity_controller{
     static async addActivity(req, res) {

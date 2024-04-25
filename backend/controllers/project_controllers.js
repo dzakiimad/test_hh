@@ -1,9 +1,5 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('test_hh_dev', 'postgres', 'postgres', {
-    host: 'localhost',
-    dialect: 'postgres'
-})
-
+const { sequelize } = require('../config/config');
 class Project_controller {
     static async addProject(req, res) {
         try {
