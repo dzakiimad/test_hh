@@ -2,7 +2,8 @@
 ## backend
 - _cd backend_
 - _npm i_
-- **setting config development /config.json dan /config.js dengan username, password, dialect**
+- **setting config development /config.json dan /config.js dengan database username, password, dialect**
+- default => (test_hh_dev2, postgres, postgres, postgres)
 - _npx sequelize-cli_ db:create //membuat db 
 - _npx sequelize-cli db:migrate_
 - _npx sequelize-cli db:seed:all_
