@@ -1,17 +1,21 @@
 'use client'
 
-import { createContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
+import { Context } from './context_login_notif';
 
 export const FetchDataContext = createContext();
 
+
 export const FetchDataProvider = ({ children }) => {
+  const { showSuccessNotification } = useContext(Context)
 
     const [user, setUser] = useState({
         name: "",
         rate_perjam: ""
       });
       const fetchDataUser = async () => {
-        const response = await fetch('http://localhost:3000/activities', {
+        try {
+          const response = await fetch('http://localhost:3000/activities', {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -25,6 +29,13 @@ export const FetchDataProvider = ({ children }) => {
           name: prod?.user?.name,
           rate_perjam: prod?.user?.rate_perjam
         })
+        } catch (error) {
+          showSuccessNotification({
+            status: true,
+            message: 'Terjadi kesalahan',
+            color: 'red'
+        })
+        }
       }
 
     const [dataActivity, setDataActivity] = useState([]);
@@ -42,7 +53,11 @@ export const FetchDataProvider = ({ children }) => {
       const prod = await response.json()
       setDataActivity(prod)
     } catch (error) {
-      console.log(error);
+      showSuccessNotification({
+        status: true,
+        message: 'Terjadi kesalahan',
+        color: 'red'
+    })
     }
 
   }
@@ -61,7 +76,11 @@ export const FetchDataProvider = ({ children }) => {
     const prod = await response.json()
     setDataProject(prod.data)
     } catch (error) {
-      console.log(error);
+      showSuccessNotification({
+        status: true,
+        message: 'Terjadi kesalahan',
+        color: 'red'
+    })
     }
     
   }

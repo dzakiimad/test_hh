@@ -1,6 +1,5 @@
 'use client'
 
-import Loading from '@/components/loading';
 import Navbar from '@/components/navbar';
 import Notification from '@/components/notification';
 import { usePathname, useRouter } from 'next/navigation';

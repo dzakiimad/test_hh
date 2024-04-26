@@ -35,7 +35,11 @@ export default function FormAddProject() {
             }
             route.replace("/")
         } catch (error) {
-            console.log(error);
+                showSuccessNotification({
+                    status: true,
+                    message: 'Terjadi kesalahan',
+                    color: 'red'
+                })
         }
        
     }
