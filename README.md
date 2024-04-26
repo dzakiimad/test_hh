@@ -10,7 +10,7 @@
 - node app //running on port 3000
 
 ## frontend
-- _cd my-app_
+- _cd frontend_
 - _npm i_
 - _npm run dev_ //running on port 8080
 
