@@ -21,6 +21,10 @@ export const handleLogin = async (email, password, showSuccessNotification, chec
             })
         }
     } catch (error) {
-        console.log(error);
+        showSuccessNotification({
+            status: true,
+            message: 'Terjadi kesalahan',
+            color: 'red'
+        })
     }
 }

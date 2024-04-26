@@ -9,7 +9,6 @@ export const handleEditActivity = async (input,showSuccessNotification, fetchDat
             },
             body: JSON.stringify(input)
         });
-        console.log('test');
         const prod = await response.json()
         fetchDataActivity()
         document.getElementById('my_modal_2').close()

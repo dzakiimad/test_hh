@@ -100,7 +100,11 @@ export const FetchDataProvider = ({ children }) => {
     const prod = await response.json()
     setActivity(prod[0])
     } catch (error) {
-      console.log(error);
+      showSuccessNotification({
+        status: true,
+        message: 'Terjadi kesalahan',
+        color: 'red'
+    })
     }
     
   }
