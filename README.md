@@ -4,9 +4,9 @@
 - ```npm i```
 - **setting config development /config.json dan /config.js dengan database username, password, dialect**
 - default => (test_hh_dev, postgres, postgres, postgres)
-- ```npx sequelize-cli db:create``` //membuat db 
-- ```npx sequelize-cli db:migrate```
-- ```npx sequelize-cli db:seed:all```
+- ```npx sequelize-cli db:create``` //membuat db test_hh_dev
+- ```npx sequelize-cli db:migrate```//membuat table Users, Projects, Activities
+- ```npx sequelize-cli db:seed:all```//input data ke table Users, Projects, Activities
 - ```node app``` //running on port 3000
 
 ## frontend
