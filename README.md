@@ -1,18 +1,18 @@
 # test_hh
 ## backend
-- _cd backend_
-- _npm i_
+- ```cd backend```
+- ```npm i```
 - **setting config development /config.json dan /config.js dengan database username, password, dialect**
 - default => (test_hh_dev, postgres, postgres, postgres)
-- _npx sequelize-cli_ db:create //membuat db 
-- _npx sequelize-cli db:migrate_
-- _npx sequelize-cli db:seed:all_
-- node app //running on port 3000
+- ```npx sequelize-cli db:create``` //membuat db 
+- ```npx sequelize-cli db:migrate```
+- ```npx sequelize-cli db:seed:all```
+- ```node app``` //running on port 3000
 
 ## frontend
-- _cd frontend_
-- _npm i_
-- _npm run dev_ //running on port 8080
+- ```cd frontend```
+- ```npm i```
+- ```npm run dev``` //running on port 8080
 
 ## jalankan aplikasi 
 buka pada browser http://localhost:8080/
