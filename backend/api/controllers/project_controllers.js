@@ -1,5 +1,5 @@
-const { Sequelize } = require('sequelize');
-const { sequelize } = require('../config/config');
+const { sequelize } = require("../models")
+
 class Project_controller {
     static async addProject(req, res) {
         try {

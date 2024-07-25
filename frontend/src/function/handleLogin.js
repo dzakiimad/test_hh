@@ -2,7 +2,7 @@
 export const handleLogin = async (email, password, showSuccessNotification, checkLoginStatus) => {
 
     try {
-        const response = await fetch('http://localhost:3000/users/login', {
+        const response = await fetch('https://test-hh-pi.vercel.app/users/login', {
             method: 'POST',
             cache: 'no-store',
             headers: {

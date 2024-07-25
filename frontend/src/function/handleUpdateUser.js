@@ -2,7 +2,7 @@
 export const handleUpdateUser = async (input, showSuccessNotification, route) => {
 
     try {
-        const response = await fetch('http://localhost:3000/users', {
+        const response = await fetch('https://test-hh-pi.vercel.app/users', {
             method: 'PUT',
             cache: 'no-store',
             headers: {

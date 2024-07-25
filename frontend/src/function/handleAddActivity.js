@@ -1,4 +1,4 @@
-export const handleAddActivity = async (input,showSuccessNotification, fetchDataActivity) => {
+export const handleAddActivity = async (input, showSuccessNotification, fetchDataActivity) => {
     try {
         let obj = {
             method: 'POST',
@@ -9,7 +9,7 @@ export const handleAddActivity = async (input,showSuccessNotification, fetchData
             },
             body: JSON.stringify(input)
         }
-        const response = await fetch('http://localhost:3000/activities', obj);
+        const response = await fetch('https://test-hh-pi.vercel.app/activities', obj);
         const prod = await response.json()
         fetchDataActivity()
         document.getElementById('my_modal_1').close()

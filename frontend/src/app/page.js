@@ -7,7 +7,7 @@ import { FetchDataContext } from "./context_fecthData";
 
 export default function Home() {
 
-  const {fetchDataActivity, dataActivity, fetchDataProject, dataProject} = useContext(FetchDataContext)
+  const { fetchDataActivity, dataActivity, fetchDataProject, dataProject } = useContext(FetchDataContext)
 
   useEffect(() => {
     fetchDataActivity()
@@ -15,12 +15,12 @@ export default function Home() {
 
 
   useEffect(() => {
-      fetchDataProject()
+    fetchDataProject()
   }, [])
 
   return (
     <>
-      <Content dataProject={dataProject} dataActivity={dataActivity} fetchDataActivity={fetchDataActivity} fetchDataProject={fetchDataProject}/>
+      <Content dataProject={dataProject} dataActivity={dataActivity} fetchDataActivity={fetchDataActivity} fetchDataProject={fetchDataProject} />
     </>
   )
 }

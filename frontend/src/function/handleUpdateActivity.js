@@ -1,6 +1,6 @@
-export const handleEditActivity = async (input,showSuccessNotification, fetchDataActivity, edit) => {
+export const handleEditActivity = async (input, showSuccessNotification, fetchDataActivity, edit) => {
     try {
-        const response = await fetch('http://localhost:3000/activities', {
+        const response = await fetch('https://test-hh-pi.vercel.app/activities', {
             method: 'PUT',
             cache: 'no-store',
             headers: {

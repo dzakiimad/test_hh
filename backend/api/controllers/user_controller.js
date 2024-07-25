@@ -1,8 +1,10 @@
 const bcrypt = require('bcrypt')
 
-const {Sequelize} = require('sequelize');
+// const { Sequelize } = require('sequelize');
 const { generateToken } = require('../helpers_function/jwt');
-const { sequelize } = require('../config/config');
+const { sequelize } = require('../models');
+// const { sequelize } = require('../config/configSequelize');
+// const sequelize = new Sequelize()
 class User_controller {
     static async updateUser(req, res) {
         try {
@@ -10,20 +12,20 @@ class User_controller {
             const { id } = req.user
 
             const objectData = {}
-            if(name) objectData.name = name
-            if(rate_perjam) objectData.rate_perjam = rate_perjam
+            if (name) objectData.name = name
+            if (rate_perjam) objectData.rate_perjam = rate_perjam
 
-            if(Object.keys(objectData).length) {
+            if (Object.keys(objectData).length) {
                 await sequelize.query(`UPDATE "Users"
                 SET
                     ${Object.keys(objectData).map(key => `"${key}" = :${key}`).join(', ')}
-                WHERE "id" = :id`, {replacements: { id, name, rate_perjam }})
+                WHERE "id" = :id`, { replacements: { id, name, rate_perjam } })
             }
 
             res
                 .status(200)
                 .json({
-                    "message": `update success` 
+                    "message": `update success`
                 });
 
         } catch (error) {
@@ -35,7 +37,7 @@ class User_controller {
     static async login(req, res) {
         try {
             const { email, password } = req.body
-            
+
             let user
             if (email) {
                 user = await sequelize.query(`SELECT * FROM "Users" WHERE "email" = :email`, { replacements: { email } })
@@ -51,20 +53,22 @@ class User_controller {
                     status: 401
                 }
             }
-            const verifyPassword = await bcrypt.compare(password, user.password)
+            // const verifyPassword = await bcrypt.compare(password, user.password)
+            const verifyPassword = password === user.password
             if (!verifyPassword) {
                 throw {
                     name: 'Unauthorized',
                     message: 'Password wrong',
                     status: 401
                 }
-                
+
             }
-            const accessToken = generateToken({id: user.id, email: user.email})
+            const accessToken = generateToken({ id: user.id, email: user.email })
             res
                 .status(200)
-                .json({accessToken})
+                .json({ accessToken })
         } catch (error) {
+            console.log(error);
             res
                 .status(error?.status || 500)
                 .json({ error: error?.message || "Internal server error" })

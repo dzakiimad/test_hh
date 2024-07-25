@@ -1,5 +1,5 @@
 export const handleDelete = async (id, fetchDataActivity) => {
-    const response = await fetch(`http://localhost:3000/activities`, {
+    const response = await fetch(`https://test-hh-pi.vercel.app/activities`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

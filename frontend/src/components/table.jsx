@@ -8,7 +8,7 @@ import { FetchDataContext } from "@/app/context_fecthData";
 
 export default function Table({ dataActivity, fetchDataActivity, dataProject }) {
 
-    const {fetchActivity, activity} = useContext(FetchDataContext)
+    const { fetchActivity, activity } = useContext(FetchDataContext)
 
     return (
         <>
@@ -30,7 +30,7 @@ export default function Table({ dataActivity, fetchDataActivity, dataProject }) 
                         </thead>
                         <tbody>
                             {dataActivity?.map((item, i) => (
-                                <tr key={i}>
+                                <tr key={i} className="text-grey">
                                     <td>{i + 1}</td>
                                     <td>{item.judul}</td>
                                     <td>{item.project}</td>
@@ -39,15 +39,17 @@ export default function Table({ dataActivity, fetchDataActivity, dataProject }) 
                                     <td>{item.jam_mulai}</td>
                                     <td>{item.jam_berakhir}</td>
                                     <td>{secondsToDhms(item.durasi)}</td>
-                                    <td className='flex space-x-2'>
-                                    <button className="btn-sm btn-ghost text-sm" onClick={() => {
-                                        fetchActivity(item.id)
-                                        return document.getElementById('my_modal_2').showModal()
-                                    }}>Edit</button>
-                                        <dialog id="my_modal_2" className="modal">
-                                            <ModalActivity fetchDataActivity={fetchDataActivity} dataProject={dataProject} edit="true"/>
-                                        </dialog>
-                                        <button className="btn-sm btn-ghost text-sm" onClick={() => handleDelete(item.id, fetchDataActivity)}>Delete</button>
+                                    <td className='space-x-2'>
+                                        <div className="flex gap-2">
+                                            <button className="btn-sm btn-ghost text-sm w-16 bg-base-content text-white" onClick={() => {
+                                                fetchActivity(item.id)
+                                                return document.getElementById('my_modal_2').showModal()
+                                            }}>Edit</button>
+                                            <dialog id="my_modal_2" className="modal">
+                                                <ModalActivity fetchDataActivity={fetchDataActivity} dataProject={dataProject} edit="true" />
+                                            </dialog>
+                                            <button className="btn-sm btn-ghost text-sm w-16 bg-warning text-white" onClick={() => handleDelete(item.id, fetchDataActivity)}>Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
