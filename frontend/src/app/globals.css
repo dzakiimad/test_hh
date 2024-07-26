@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root {
+/* :root {
   --color-red: #F15858;
   --color-background-page: #F7F8FB;
   --color-blue: #2775EC;
   --color-light-blue: #F0F6FF;
-}
+} */
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

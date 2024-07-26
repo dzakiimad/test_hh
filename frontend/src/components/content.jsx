@@ -27,7 +27,7 @@ export default function Content({ dataActivity, dataProject, fetchDataActivity }
               <h1 className=' flex font-bold text-xl text-grey'>Daftar Kegiatan</h1>
             </div>
             <div>
-              <Button type="submit" color="blue" text="Tambah Kegiatan" click={() => document.getElementById('my_modal_1').showModal()} >Tambah Kegiatan</Button>
+              <Button type="submit" color="bluee" text="Tambah Kegiatan" click={() => document.getElementById('my_modal_1').showModal()} >Tambah Kegiatan</Button>
             </div>
             <dialog id="my_modal_1" className="modal">
               <ModalActivity fetchDataActivity={fetchDataActivity} dataProject={dataProject} edit={"false"} />
