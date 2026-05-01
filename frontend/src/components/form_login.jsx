@@ -37,7 +37,7 @@ export default function FormLogin() {
                                 className="shadow border rounded w-full py-2 px-3 text-black focus:outline-none  bg-white"
                                 id="email"
                                 type="text"
-                                placeholder="email"
+                                placeholder="email.."
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
